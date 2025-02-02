@@ -99,9 +99,9 @@ def process_message(message: str) -> None:
 
             # Log the updated counts
             logger.info(f"Updated author counts: {dict(author_counts)}")
-            
+
             # Check if the author is 'Kamdyn' and alert.
-            if author.lower() == "Kamdyn":
+            if author.lower() == "kamdyn":
                 logger.warning("ALERT: Message from Kamdyn received!")
                 print("ALERT: Message from Kamdyn received!")
 

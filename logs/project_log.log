@@ -641,3 +641,448 @@
 2025-01-30 11:29:29.093 | INFO     | __main__:main:177 - END producer.
 2025-01-30 11:29:36.122 | WARNING  | __main__:main:184 - Consumer interrupted by user.
 2025-01-30 11:29:36.150 | INFO     | __main__:main:189 - Kafka consumer for topic 'smoker_csv' closed.
+2025-02-02 15:46:51.593 | INFO     | utils.utils_logger:<module>:38 - Logging to file: logs\project_log.log
+2025-02-02 15:46:51.597 | INFO     | __main__:<module>:68 - Project root: C:\Projects\buzzline-03-valjohnson
+2025-02-02 15:46:51.598 | INFO     | __main__:<module>:72 - Data folder: C:\Projects\buzzline-03-valjohnson\data
+2025-02-02 15:46:51.599 | INFO     | __main__:<module>:76 - Data file: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:46:51.599 | INFO     | __main__:main:136 - START producer.
+2025-02-02 15:46:51.600 | INFO     | utils.utils_producer:get_zookeeper_address:57 - Zookeeper address: localhost:2181
+2025-02-02 15:46:51.639 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:79 - Zookeeper is ready at localhost:2181.
+2025-02-02 15:46:51.640 | INFO     | utils.utils_producer:get_kafka_broker_address:50 - Kafka broker address: localhost:9092
+2025-02-02 15:46:51.975 | INFO     | utils.utils_producer:check_kafka_service_is_ready:98 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': 'dqsRHs54RlOZ2u6c_54o9w', 'controller_id': 1001}
+2025-02-02 15:46:51.977 | INFO     | __main__:get_kafka_topic:50 - Kafka topic: buzzline_json
+2025-02-02 15:46:51.978 | INFO     | __main__:get_message_interval:57 - Message interval: 1 seconds
+2025-02-02 15:46:51.980 | INFO     | utils.utils_producer:get_kafka_broker_address:50 - Kafka broker address: localhost:9092
+2025-02-02 15:46:51.981 | INFO     | utils.utils_producer:create_kafka_producer:146 - Connecting to Kafka broker at localhost:9092...
+2025-02-02 15:46:52.091 | INFO     | utils.utils_producer:create_kafka_producer:151 - Kafka producer successfully created.
+2025-02-02 15:46:52.092 | INFO     | utils.utils_producer:get_kafka_broker_address:50 - Kafka broker address: localhost:9092
+2025-02-02 15:46:52.414 | INFO     | utils.utils_producer:create_kafka_topic:176 - Creating 'buzzline_json'.
+2025-02-02 15:46:52.678 | INFO     | utils.utils_producer:create_kafka_topic:181 - Topic 'buzzline_json' created successfully.
+2025-02-02 15:46:52.679 | INFO     | __main__:main:159 - Kafka topic 'buzzline_json' is ready.
+2025-02-02 15:46:52.680 | INFO     | __main__:main:165 - Starting message production to topic 'buzzline_json'...
+2025-02-02 15:46:52.681 | INFO     | __main__:generate_messages:95 - Opening data file in read mode: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:46:52.682 | INFO     | __main__:generate_messages:97 - Reading data from file: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:46:52.754 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Arts and crafts are my passion.', 'author': 'Valerie'}
+2025-02-02 15:46:53.757 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Chiropractic is my passion.', 'author': 'Kody'}
+2025-02-02 15:46:54.760 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Have a great day!', 'author': 'Valerie'}
+2025-02-02 15:46:55.763 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Minecraft and Pokemon are my passion.', 'author': 'Kamdyn'}
+2025-02-02 15:46:56.767 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Cycling is a fun activity.', 'author': 'Kody'}
+2025-02-02 15:46:57.770 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Generating buzz messages is fun when I can customize them.', 'author': 'Valerie'}
+2025-02-02 15:46:58.773 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Streaming is a lot of fun.', 'author': 'Valerie'}
+2025-02-02 15:46:59.776 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'This is a buzz message.', 'author': 'Kody'}
+2025-02-02 15:47:00.779 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Gardening is easier in the summertime.', 'author': 'Kody'}
+2025-02-02 15:47:01.782 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Jumping on a trampoline is good exercise.', 'author': 'Kamdyn'}
+2025-02-02 15:47:02.785 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': "I can't wait to raise pigs again.", 'author': 'Kody'}
+2025-02-02 15:47:03.788 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'My craftroom needs a makeover.', 'author': 'Valerie'}
+2025-02-02 15:47:04.790 | INFO     | __main__:generate_messages:95 - Opening data file in read mode: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:47:04.791 | INFO     | __main__:generate_messages:97 - Reading data from file: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:47:04.793 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Arts and crafts are my passion.', 'author': 'Valerie'}
+2025-02-02 15:47:05.795 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Chiropractic is my passion.', 'author': 'Kody'}
+2025-02-02 15:47:06.798 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Have a great day!', 'author': 'Valerie'}
+2025-02-02 15:47:07.800 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Minecraft and Pokemon are my passion.', 'author': 'Kamdyn'}
+2025-02-02 15:47:08.803 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Cycling is a fun activity.', 'author': 'Kody'}
+2025-02-02 15:47:09.806 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Generating buzz messages is fun when I can customize them.', 'author': 'Valerie'}
+2025-02-02 15:47:10.809 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Streaming is a lot of fun.', 'author': 'Valerie'}
+2025-02-02 15:47:11.811 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'This is a buzz message.', 'author': 'Kody'}
+2025-02-02 15:47:12.813 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Gardening is easier in the summertime.', 'author': 'Kody'}
+2025-02-02 15:47:13.815 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Jumping on a trampoline is good exercise.', 'author': 'Kamdyn'}
+2025-02-02 15:47:14.818 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': "I can't wait to raise pigs again.", 'author': 'Kody'}
+2025-02-02 15:47:15.821 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'My craftroom needs a makeover.', 'author': 'Valerie'}
+2025-02-02 15:47:16.823 | INFO     | __main__:generate_messages:95 - Opening data file in read mode: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:47:16.824 | INFO     | __main__:generate_messages:97 - Reading data from file: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:47:16.826 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Arts and crafts are my passion.', 'author': 'Valerie'}
+2025-02-02 15:47:17.829 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Chiropractic is my passion.', 'author': 'Kody'}
+2025-02-02 15:47:18.832 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Have a great day!', 'author': 'Valerie'}
+2025-02-02 15:47:19.835 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Minecraft and Pokemon are my passion.', 'author': 'Kamdyn'}
+2025-02-02 15:47:20.838 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Cycling is a fun activity.', 'author': 'Kody'}
+2025-02-02 15:47:21.840 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Generating buzz messages is fun when I can customize them.', 'author': 'Valerie'}
+2025-02-02 15:47:21.870 | INFO     | utils.utils_logger:<module>:38 - Logging to file: logs\project_log.log
+2025-02-02 15:47:21.876 | INFO     | __main__:main:130 - START consumer.
+2025-02-02 15:47:21.876 | INFO     | __main__:get_kafka_topic:46 - Kafka topic: buzzline_json
+2025-02-02 15:47:21.877 | INFO     | __main__:get_kafka_consumer_group_id:53 - Kafka consumer group id: buzz_group
+2025-02-02 15:47:21.877 | INFO     | __main__:main:135 - Consumer: Topic 'buzzline_json' and group 'buzz_group'...
+2025-02-02 15:47:21.878 | INFO     | utils.utils_producer:get_kafka_broker_address:50 - Kafka broker address: localhost:9092
+2025-02-02 15:47:21.879 | INFO     | utils.utils_consumer:create_kafka_consumer:44 - Creating Kafka consumer. Topic='buzzline_json' and group ID='buzz_group'.
+2025-02-02 15:47:22.004 | INFO     | utils.utils_consumer:create_kafka_consumer:59 - Kafka consumer created successfully.
+2025-02-02 15:47:22.005 | INFO     | __main__:main:141 - Polling messages from topic 'buzzline_json'...
+2025-02-02 15:47:22.844 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Streaming is a lot of fun.', 'author': 'Valerie'}
+2025-02-02 15:47:23.494 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Arts and crafts are my passion.', 'author': 'Valerie'}
+2025-02-02 15:47:23.494 | INFO     | __main__:process_message:95 - Message received from author: Valerie
+2025-02-02 15:47:23.495 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 1}
+2025-02-02 15:47:23.497 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Chiropractic is my passion.', 'author': 'Kody'}
+2025-02-02 15:47:23.498 | INFO     | __main__:process_message:95 - Message received from author: Kody
+2025-02-02 15:47:23.499 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 1, 'Kody': 1}
+2025-02-02 15:47:23.502 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Have a great day!', 'author': 'Valerie'}
+2025-02-02 15:47:23.503 | INFO     | __main__:process_message:95 - Message received from author: Valerie
+2025-02-02 15:47:23.504 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 2, 'Kody': 1}
+2025-02-02 15:47:23.508 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Minecraft and Pokemon are my passion.', 'author': 'Kamdyn'}
+2025-02-02 15:47:23.509 | INFO     | __main__:process_message:95 - Message received from author: Kamdyn
+2025-02-02 15:47:23.509 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 2, 'Kody': 1, 'Kamdyn': 1}
+2025-02-02 15:47:23.511 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Cycling is a fun activity.', 'author': 'Kody'}
+2025-02-02 15:47:23.512 | INFO     | __main__:process_message:95 - Message received from author: Kody
+2025-02-02 15:47:23.514 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 2, 'Kody': 2, 'Kamdyn': 1}
+2025-02-02 15:47:23.519 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Generating buzz messages is fun when I can customize them.', 'author': 'Valerie'}
+2025-02-02 15:47:23.520 | INFO     | __main__:process_message:95 - Message received from author: Valerie
+2025-02-02 15:47:23.521 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 3, 'Kody': 2, 'Kamdyn': 1}
+2025-02-02 15:47:23.524 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Streaming is a lot of fun.', 'author': 'Valerie'}
+2025-02-02 15:47:23.525 | INFO     | __main__:process_message:95 - Message received from author: Valerie
+2025-02-02 15:47:23.528 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 4, 'Kody': 2, 'Kamdyn': 1}
+2025-02-02 15:47:23.530 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'This is a buzz message.', 'author': 'Kody'}
+2025-02-02 15:47:23.531 | INFO     | __main__:process_message:95 - Message received from author: Kody
+2025-02-02 15:47:23.532 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 4, 'Kody': 3, 'Kamdyn': 1}
+2025-02-02 15:47:23.534 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Gardening is easier in the summertime.', 'author': 'Kody'}
+2025-02-02 15:47:23.535 | INFO     | __main__:process_message:95 - Message received from author: Kody
+2025-02-02 15:47:23.536 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 4, 'Kody': 4, 'Kamdyn': 1}
+2025-02-02 15:47:23.539 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Jumping on a trampoline is good exercise.', 'author': 'Kamdyn'}
+2025-02-02 15:47:23.540 | INFO     | __main__:process_message:95 - Message received from author: Kamdyn
+2025-02-02 15:47:23.541 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 4, 'Kody': 4, 'Kamdyn': 2}
+2025-02-02 15:47:23.543 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': "I can't wait to raise pigs again.", 'author': 'Kody'}
+2025-02-02 15:47:23.544 | INFO     | __main__:process_message:95 - Message received from author: Kody
+2025-02-02 15:47:23.545 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 4, 'Kody': 5, 'Kamdyn': 2}
+2025-02-02 15:47:23.549 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'My craftroom needs a makeover.', 'author': 'Valerie'}
+2025-02-02 15:47:23.550 | INFO     | __main__:process_message:95 - Message received from author: Valerie
+2025-02-02 15:47:23.551 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 5, 'Kody': 5, 'Kamdyn': 2}
+2025-02-02 15:47:23.556 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Arts and crafts are my passion.', 'author': 'Valerie'}
+2025-02-02 15:47:23.557 | INFO     | __main__:process_message:95 - Message received from author: Valerie
+2025-02-02 15:47:23.557 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 6, 'Kody': 5, 'Kamdyn': 2}
+2025-02-02 15:47:23.559 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Chiropractic is my passion.', 'author': 'Kody'}
+2025-02-02 15:47:23.560 | INFO     | __main__:process_message:95 - Message received from author: Kody
+2025-02-02 15:47:23.560 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 6, 'Kody': 6, 'Kamdyn': 2}
+2025-02-02 15:47:23.565 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Have a great day!', 'author': 'Valerie'}
+2025-02-02 15:47:23.566 | INFO     | __main__:process_message:95 - Message received from author: Valerie
+2025-02-02 15:47:23.567 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 7, 'Kody': 6, 'Kamdyn': 2}
+2025-02-02 15:47:23.570 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Minecraft and Pokemon are my passion.', 'author': 'Kamdyn'}
+2025-02-02 15:47:23.571 | INFO     | __main__:process_message:95 - Message received from author: Kamdyn
+2025-02-02 15:47:23.571 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 7, 'Kody': 6, 'Kamdyn': 3}
+2025-02-02 15:47:23.574 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Cycling is a fun activity.', 'author': 'Kody'}
+2025-02-02 15:47:23.575 | INFO     | __main__:process_message:95 - Message received from author: Kody
+2025-02-02 15:47:23.576 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 7, 'Kody': 7, 'Kamdyn': 3}
+2025-02-02 15:47:23.581 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Generating buzz messages is fun when I can customize them.', 'author': 'Valerie'}
+2025-02-02 15:47:23.582 | INFO     | __main__:process_message:95 - Message received from author: Valerie
+2025-02-02 15:47:23.583 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 8, 'Kody': 7, 'Kamdyn': 3}
+2025-02-02 15:47:23.586 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Streaming is a lot of fun.', 'author': 'Valerie'}
+2025-02-02 15:47:23.588 | INFO     | __main__:process_message:95 - Message received from author: Valerie
+2025-02-02 15:47:23.589 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 9, 'Kody': 7, 'Kamdyn': 3}
+2025-02-02 15:47:23.593 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'This is a buzz message.', 'author': 'Kody'}
+2025-02-02 15:47:23.594 | INFO     | __main__:process_message:95 - Message received from author: Kody
+2025-02-02 15:47:23.594 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 9, 'Kody': 8, 'Kamdyn': 3}
+2025-02-02 15:47:23.597 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Gardening is easier in the summertime.', 'author': 'Kody'}
+2025-02-02 15:47:23.597 | INFO     | __main__:process_message:95 - Message received from author: Kody
+2025-02-02 15:47:23.598 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 9, 'Kody': 9, 'Kamdyn': 3}
+2025-02-02 15:47:23.600 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Jumping on a trampoline is good exercise.', 'author': 'Kamdyn'}
+2025-02-02 15:47:23.600 | INFO     | __main__:process_message:95 - Message received from author: Kamdyn
+2025-02-02 15:47:23.601 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 9, 'Kody': 9, 'Kamdyn': 4}
+2025-02-02 15:47:23.604 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': "I can't wait to raise pigs again.", 'author': 'Kody'}
+2025-02-02 15:47:23.606 | INFO     | __main__:process_message:95 - Message received from author: Kody
+2025-02-02 15:47:23.607 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 9, 'Kody': 10, 'Kamdyn': 4}
+2025-02-02 15:47:23.610 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'My craftroom needs a makeover.', 'author': 'Valerie'}
+2025-02-02 15:47:23.610 | INFO     | __main__:process_message:95 - Message received from author: Valerie
+2025-02-02 15:47:23.611 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 10, 'Kody': 10, 'Kamdyn': 4}
+2025-02-02 15:47:23.614 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Arts and crafts are my passion.', 'author': 'Valerie'}
+2025-02-02 15:47:23.615 | INFO     | __main__:process_message:95 - Message received from author: Valerie
+2025-02-02 15:47:23.615 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 11, 'Kody': 10, 'Kamdyn': 4}
+2025-02-02 15:47:23.617 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Chiropractic is my passion.', 'author': 'Kody'}
+2025-02-02 15:47:23.618 | INFO     | __main__:process_message:95 - Message received from author: Kody
+2025-02-02 15:47:23.620 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 11, 'Kody': 11, 'Kamdyn': 4}
+2025-02-02 15:47:23.623 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Have a great day!', 'author': 'Valerie'}
+2025-02-02 15:47:23.625 | INFO     | __main__:process_message:95 - Message received from author: Valerie
+2025-02-02 15:47:23.626 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 12, 'Kody': 11, 'Kamdyn': 4}
+2025-02-02 15:47:23.629 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Minecraft and Pokemon are my passion.', 'author': 'Kamdyn'}
+2025-02-02 15:47:23.630 | INFO     | __main__:process_message:95 - Message received from author: Kamdyn
+2025-02-02 15:47:23.630 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 12, 'Kody': 11, 'Kamdyn': 5}
+2025-02-02 15:47:23.633 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Cycling is a fun activity.', 'author': 'Kody'}
+2025-02-02 15:47:23.634 | INFO     | __main__:process_message:95 - Message received from author: Kody
+2025-02-02 15:47:23.635 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 12, 'Kody': 12, 'Kamdyn': 5}
+2025-02-02 15:47:23.638 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Generating buzz messages is fun when I can customize them.', 'author': 'Valerie'}
+2025-02-02 15:47:23.639 | INFO     | __main__:process_message:95 - Message received from author: Valerie
+2025-02-02 15:47:23.639 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 13, 'Kody': 12, 'Kamdyn': 5}
+2025-02-02 15:47:23.641 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Streaming is a lot of fun.', 'author': 'Valerie'}
+2025-02-02 15:47:23.642 | INFO     | __main__:process_message:95 - Message received from author: Valerie
+2025-02-02 15:47:23.642 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 14, 'Kody': 12, 'Kamdyn': 5}
+2025-02-02 15:47:23.848 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'This is a buzz message.', 'author': 'Kody'}
+2025-02-02 15:47:23.857 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'This is a buzz message.', 'author': 'Kody'}
+2025-02-02 15:47:23.858 | INFO     | __main__:process_message:95 - Message received from author: Kody
+2025-02-02 15:47:23.859 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 14, 'Kody': 13, 'Kamdyn': 5}
+2025-02-02 15:47:24.850 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Gardening is easier in the summertime.', 'author': 'Kody'}
+2025-02-02 15:47:24.857 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Gardening is easier in the summertime.', 'author': 'Kody'}
+2025-02-02 15:47:24.858 | INFO     | __main__:process_message:95 - Message received from author: Kody
+2025-02-02 15:47:24.858 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 14, 'Kody': 14, 'Kamdyn': 5}
+2025-02-02 15:47:25.854 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Jumping on a trampoline is good exercise.', 'author': 'Kamdyn'}
+2025-02-02 15:47:25.859 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Jumping on a trampoline is good exercise.', 'author': 'Kamdyn'}
+2025-02-02 15:47:25.860 | INFO     | __main__:process_message:95 - Message received from author: Kamdyn
+2025-02-02 15:47:25.861 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 14, 'Kody': 14, 'Kamdyn': 6}
+2025-02-02 15:47:26.857 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': "I can't wait to raise pigs again.", 'author': 'Kody'}
+2025-02-02 15:47:26.862 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': "I can't wait to raise pigs again.", 'author': 'Kody'}
+2025-02-02 15:47:26.863 | INFO     | __main__:process_message:95 - Message received from author: Kody
+2025-02-02 15:47:26.864 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 14, 'Kody': 15, 'Kamdyn': 6}
+2025-02-02 15:47:27.860 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'My craftroom needs a makeover.', 'author': 'Valerie'}
+2025-02-02 15:47:27.867 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'My craftroom needs a makeover.', 'author': 'Valerie'}
+2025-02-02 15:47:27.868 | INFO     | __main__:process_message:95 - Message received from author: Valerie
+2025-02-02 15:47:27.869 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 15, 'Kody': 15, 'Kamdyn': 6}
+2025-02-02 15:47:28.862 | INFO     | __main__:generate_messages:95 - Opening data file in read mode: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:47:28.863 | INFO     | __main__:generate_messages:97 - Reading data from file: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:47:28.864 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Arts and crafts are my passion.', 'author': 'Valerie'}
+2025-02-02 15:47:28.871 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Arts and crafts are my passion.', 'author': 'Valerie'}
+2025-02-02 15:47:28.872 | INFO     | __main__:process_message:95 - Message received from author: Valerie
+2025-02-02 15:47:28.872 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 16, 'Kody': 15, 'Kamdyn': 6}
+2025-02-02 15:47:29.867 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Chiropractic is my passion.', 'author': 'Kody'}
+2025-02-02 15:47:29.873 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Chiropractic is my passion.', 'author': 'Kody'}
+2025-02-02 15:47:29.874 | INFO     | __main__:process_message:95 - Message received from author: Kody
+2025-02-02 15:47:29.874 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 16, 'Kody': 16, 'Kamdyn': 6}
+2025-02-02 15:47:30.870 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Have a great day!', 'author': 'Valerie'}
+2025-02-02 15:47:30.875 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Have a great day!', 'author': 'Valerie'}
+2025-02-02 15:47:30.876 | INFO     | __main__:process_message:95 - Message received from author: Valerie
+2025-02-02 15:47:30.877 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 17, 'Kody': 16, 'Kamdyn': 6}
+2025-02-02 15:47:31.872 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Minecraft and Pokemon are my passion.', 'author': 'Kamdyn'}
+2025-02-02 15:47:31.877 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Minecraft and Pokemon are my passion.', 'author': 'Kamdyn'}
+2025-02-02 15:47:31.878 | INFO     | __main__:process_message:95 - Message received from author: Kamdyn
+2025-02-02 15:47:31.879 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 17, 'Kody': 16, 'Kamdyn': 7}
+2025-02-02 15:47:32.875 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Cycling is a fun activity.', 'author': 'Kody'}
+2025-02-02 15:47:32.880 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Cycling is a fun activity.', 'author': 'Kody'}
+2025-02-02 15:47:32.881 | INFO     | __main__:process_message:95 - Message received from author: Kody
+2025-02-02 15:47:32.882 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 17, 'Kody': 17, 'Kamdyn': 7}
+2025-02-02 15:47:33.878 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Generating buzz messages is fun when I can customize them.', 'author': 'Valerie'}
+2025-02-02 15:47:33.884 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Generating buzz messages is fun when I can customize them.', 'author': 'Valerie'}
+2025-02-02 15:47:33.884 | INFO     | __main__:process_message:95 - Message received from author: Valerie
+2025-02-02 15:47:33.885 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 18, 'Kody': 17, 'Kamdyn': 7}
+2025-02-02 15:47:34.881 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Streaming is a lot of fun.', 'author': 'Valerie'}
+2025-02-02 15:47:34.886 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Streaming is a lot of fun.', 'author': 'Valerie'}
+2025-02-02 15:47:34.887 | INFO     | __main__:process_message:95 - Message received from author: Valerie
+2025-02-02 15:47:34.888 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 19, 'Kody': 17, 'Kamdyn': 7}
+2025-02-02 15:47:35.884 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'This is a buzz message.', 'author': 'Kody'}
+2025-02-02 15:47:35.890 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'This is a buzz message.', 'author': 'Kody'}
+2025-02-02 15:47:35.891 | INFO     | __main__:process_message:95 - Message received from author: Kody
+2025-02-02 15:47:35.892 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 19, 'Kody': 18, 'Kamdyn': 7}
+2025-02-02 15:47:36.887 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Gardening is easier in the summertime.', 'author': 'Kody'}
+2025-02-02 15:47:36.892 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Gardening is easier in the summertime.', 'author': 'Kody'}
+2025-02-02 15:47:36.893 | INFO     | __main__:process_message:95 - Message received from author: Kody
+2025-02-02 15:47:36.893 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 19, 'Kody': 19, 'Kamdyn': 7}
+2025-02-02 15:47:37.889 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Jumping on a trampoline is good exercise.', 'author': 'Kamdyn'}
+2025-02-02 15:47:37.894 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': 'Jumping on a trampoline is good exercise.', 'author': 'Kamdyn'}
+2025-02-02 15:47:37.895 | INFO     | __main__:process_message:95 - Message received from author: Kamdyn
+2025-02-02 15:47:37.896 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 19, 'Kody': 19, 'Kamdyn': 8}
+2025-02-02 15:47:38.891 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': "I can't wait to raise pigs again.", 'author': 'Kody'}
+2025-02-02 15:47:38.897 | INFO     | __main__:process_message:89 - Processed JSON message: {'message': "I can't wait to raise pigs again.", 'author': 'Kody'}
+2025-02-02 15:47:38.897 | INFO     | __main__:process_message:95 - Message received from author: Kody
+2025-02-02 15:47:38.898 | INFO     | __main__:process_message:101 - Updated author counts: {'Valerie': 19, 'Kody': 20, 'Kamdyn': 8}
+2025-02-02 15:47:39.894 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'My craftroom needs a makeover.', 'author': 'Valerie'}
+2025-02-02 15:47:39.897 | WARNING  | __main__:main:148 - User ceased consumer function.
+2025-02-02 15:47:39.913 | INFO     | __main__:main:153 - Kafka consumer for topic 'buzzline_json' closed.
+2025-02-02 15:47:39.914 | INFO     | __main__:main:155 - END consumer for topic 'buzzline_json' and group 'buzz_group'.
+2025-02-02 15:47:40.896 | INFO     | __main__:generate_messages:95 - Opening data file in read mode: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:47:40.897 | INFO     | __main__:generate_messages:97 - Reading data from file: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:47:40.899 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Arts and crafts are my passion.', 'author': 'Valerie'}
+2025-02-02 15:47:41.903 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Chiropractic is my passion.', 'author': 'Kody'}
+2025-02-02 15:47:42.905 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Have a great day!', 'author': 'Valerie'}
+2025-02-02 15:47:43.908 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Minecraft and Pokemon are my passion.', 'author': 'Kamdyn'}
+2025-02-02 15:47:44.911 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Cycling is a fun activity.', 'author': 'Kody'}
+2025-02-02 15:47:45.914 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Generating buzz messages is fun when I can customize them.', 'author': 'Valerie'}
+2025-02-02 15:47:46.918 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Streaming is a lot of fun.', 'author': 'Valerie'}
+2025-02-02 15:47:47.921 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'This is a buzz message.', 'author': 'Kody'}
+2025-02-02 15:47:48.924 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Gardening is easier in the summertime.', 'author': 'Kody'}
+2025-02-02 15:47:49.926 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Jumping on a trampoline is good exercise.', 'author': 'Kamdyn'}
+2025-02-02 15:47:50.929 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': "I can't wait to raise pigs again.", 'author': 'Kody'}
+2025-02-02 15:47:51.932 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'My craftroom needs a makeover.', 'author': 'Valerie'}
+2025-02-02 15:47:52.934 | INFO     | __main__:generate_messages:95 - Opening data file in read mode: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:47:52.935 | INFO     | __main__:generate_messages:97 - Reading data from file: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:47:52.937 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Arts and crafts are my passion.', 'author': 'Valerie'}
+2025-02-02 15:47:53.940 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Chiropractic is my passion.', 'author': 'Kody'}
+2025-02-02 15:47:54.943 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Have a great day!', 'author': 'Valerie'}
+2025-02-02 15:47:55.946 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Minecraft and Pokemon are my passion.', 'author': 'Kamdyn'}
+2025-02-02 15:47:56.948 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Cycling is a fun activity.', 'author': 'Kody'}
+2025-02-02 15:47:57.951 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Generating buzz messages is fun when I can customize them.', 'author': 'Valerie'}
+2025-02-02 15:47:58.953 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Streaming is a lot of fun.', 'author': 'Valerie'}
+2025-02-02 15:47:59.955 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'This is a buzz message.', 'author': 'Kody'}
+2025-02-02 15:48:00.957 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Gardening is easier in the summertime.', 'author': 'Kody'}
+2025-02-02 15:48:01.960 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Jumping on a trampoline is good exercise.', 'author': 'Kamdyn'}
+2025-02-02 15:48:02.963 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': "I can't wait to raise pigs again.", 'author': 'Kody'}
+2025-02-02 15:48:03.966 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'My craftroom needs a makeover.', 'author': 'Valerie'}
+2025-02-02 15:48:04.967 | INFO     | __main__:generate_messages:95 - Opening data file in read mode: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:48:04.968 | INFO     | __main__:generate_messages:97 - Reading data from file: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:48:04.970 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Arts and crafts are my passion.', 'author': 'Valerie'}
+2025-02-02 15:48:05.972 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Chiropractic is my passion.', 'author': 'Kody'}
+2025-02-02 15:48:06.975 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Have a great day!', 'author': 'Valerie'}
+2025-02-02 15:48:07.978 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Minecraft and Pokemon are my passion.', 'author': 'Kamdyn'}
+2025-02-02 15:48:08.980 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Cycling is a fun activity.', 'author': 'Kody'}
+2025-02-02 15:48:09.983 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Generating buzz messages is fun when I can customize them.', 'author': 'Valerie'}
+2025-02-02 15:48:10.986 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Streaming is a lot of fun.', 'author': 'Valerie'}
+2025-02-02 15:48:11.989 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'This is a buzz message.', 'author': 'Kody'}
+2025-02-02 15:48:12.992 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Gardening is easier in the summertime.', 'author': 'Kody'}
+2025-02-02 15:48:13.995 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Jumping on a trampoline is good exercise.', 'author': 'Kamdyn'}
+2025-02-02 15:48:14.998 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': "I can't wait to raise pigs again.", 'author': 'Kody'}
+2025-02-02 15:48:16.000 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'My craftroom needs a makeover.', 'author': 'Valerie'}
+2025-02-02 15:48:17.002 | INFO     | __main__:generate_messages:95 - Opening data file in read mode: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:48:17.003 | INFO     | __main__:generate_messages:97 - Reading data from file: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:48:17.005 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Arts and crafts are my passion.', 'author': 'Valerie'}
+2025-02-02 15:48:18.007 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Chiropractic is my passion.', 'author': 'Kody'}
+2025-02-02 15:48:19.010 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Have a great day!', 'author': 'Valerie'}
+2025-02-02 15:48:20.013 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Minecraft and Pokemon are my passion.', 'author': 'Kamdyn'}
+2025-02-02 15:48:21.016 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Cycling is a fun activity.', 'author': 'Kody'}
+2025-02-02 15:48:22.019 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Generating buzz messages is fun when I can customize them.', 'author': 'Valerie'}
+2025-02-02 15:48:23.021 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Streaming is a lot of fun.', 'author': 'Valerie'}
+2025-02-02 15:48:24.024 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'This is a buzz message.', 'author': 'Kody'}
+2025-02-02 15:48:25.027 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Gardening is easier in the summertime.', 'author': 'Kody'}
+2025-02-02 15:48:26.029 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Jumping on a trampoline is good exercise.', 'author': 'Kamdyn'}
+2025-02-02 15:48:27.032 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': "I can't wait to raise pigs again.", 'author': 'Kody'}
+2025-02-02 15:48:28.034 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'My craftroom needs a makeover.', 'author': 'Valerie'}
+2025-02-02 15:48:29.036 | INFO     | __main__:generate_messages:95 - Opening data file in read mode: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:48:29.036 | INFO     | __main__:generate_messages:97 - Reading data from file: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:48:29.038 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Arts and crafts are my passion.', 'author': 'Valerie'}
+2025-02-02 15:48:30.040 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Chiropractic is my passion.', 'author': 'Kody'}
+2025-02-02 15:48:31.044 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Have a great day!', 'author': 'Valerie'}
+2025-02-02 15:48:32.046 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Minecraft and Pokemon are my passion.', 'author': 'Kamdyn'}
+2025-02-02 15:48:33.049 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Cycling is a fun activity.', 'author': 'Kody'}
+2025-02-02 15:48:34.052 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Generating buzz messages is fun when I can customize them.', 'author': 'Valerie'}
+2025-02-02 15:48:35.054 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Streaming is a lot of fun.', 'author': 'Valerie'}
+2025-02-02 15:48:36.057 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'This is a buzz message.', 'author': 'Kody'}
+2025-02-02 15:48:37.060 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Gardening is easier in the summertime.', 'author': 'Kody'}
+2025-02-02 15:48:38.064 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Jumping on a trampoline is good exercise.', 'author': 'Kamdyn'}
+2025-02-02 15:48:39.068 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': "I can't wait to raise pigs again.", 'author': 'Kody'}
+2025-02-02 15:48:40.071 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'My craftroom needs a makeover.', 'author': 'Valerie'}
+2025-02-02 15:48:41.073 | INFO     | __main__:generate_messages:95 - Opening data file in read mode: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:48:41.074 | INFO     | __main__:generate_messages:97 - Reading data from file: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:48:41.076 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Arts and crafts are my passion.', 'author': 'Valerie'}
+2025-02-02 15:48:42.078 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Chiropractic is my passion.', 'author': 'Kody'}
+2025-02-02 15:48:43.081 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Have a great day!', 'author': 'Valerie'}
+2025-02-02 15:48:44.084 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Minecraft and Pokemon are my passion.', 'author': 'Kamdyn'}
+2025-02-02 15:48:45.087 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Cycling is a fun activity.', 'author': 'Kody'}
+2025-02-02 15:48:46.090 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Generating buzz messages is fun when I can customize them.', 'author': 'Valerie'}
+2025-02-02 15:48:47.092 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Streaming is a lot of fun.', 'author': 'Valerie'}
+2025-02-02 15:48:48.094 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'This is a buzz message.', 'author': 'Kody'}
+2025-02-02 15:48:49.096 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Gardening is easier in the summertime.', 'author': 'Kody'}
+2025-02-02 15:48:50.099 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Jumping on a trampoline is good exercise.', 'author': 'Kamdyn'}
+2025-02-02 15:48:51.102 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': "I can't wait to raise pigs again.", 'author': 'Kody'}
+2025-02-02 15:48:52.105 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'My craftroom needs a makeover.', 'author': 'Valerie'}
+2025-02-02 15:48:53.107 | INFO     | __main__:generate_messages:95 - Opening data file in read mode: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:48:53.108 | INFO     | __main__:generate_messages:97 - Reading data from file: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:48:53.110 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Arts and crafts are my passion.', 'author': 'Valerie'}
+2025-02-02 15:48:54.112 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Chiropractic is my passion.', 'author': 'Kody'}
+2025-02-02 15:48:55.115 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Have a great day!', 'author': 'Valerie'}
+2025-02-02 15:48:56.117 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Minecraft and Pokemon are my passion.', 'author': 'Kamdyn'}
+2025-02-02 15:48:57.121 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Cycling is a fun activity.', 'author': 'Kody'}
+2025-02-02 15:48:58.124 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Generating buzz messages is fun when I can customize them.', 'author': 'Valerie'}
+2025-02-02 15:48:59.128 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Streaming is a lot of fun.', 'author': 'Valerie'}
+2025-02-02 15:49:00.131 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'This is a buzz message.', 'author': 'Kody'}
+2025-02-02 15:49:01.133 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Gardening is easier in the summertime.', 'author': 'Kody'}
+2025-02-02 15:49:02.137 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Jumping on a trampoline is good exercise.', 'author': 'Kamdyn'}
+2025-02-02 15:49:03.141 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': "I can't wait to raise pigs again.", 'author': 'Kody'}
+2025-02-02 15:49:04.144 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'My craftroom needs a makeover.', 'author': 'Valerie'}
+2025-02-02 15:49:05.146 | INFO     | __main__:generate_messages:95 - Opening data file in read mode: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:49:05.147 | INFO     | __main__:generate_messages:97 - Reading data from file: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:49:05.149 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Arts and crafts are my passion.', 'author': 'Valerie'}
+2025-02-02 15:49:06.152 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Chiropractic is my passion.', 'author': 'Kody'}
+2025-02-02 15:49:07.155 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Have a great day!', 'author': 'Valerie'}
+2025-02-02 15:49:08.158 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Minecraft and Pokemon are my passion.', 'author': 'Kamdyn'}
+2025-02-02 15:49:09.161 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Cycling is a fun activity.', 'author': 'Kody'}
+2025-02-02 15:49:10.165 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Generating buzz messages is fun when I can customize them.', 'author': 'Valerie'}
+2025-02-02 15:49:11.169 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Streaming is a lot of fun.', 'author': 'Valerie'}
+2025-02-02 15:49:12.173 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'This is a buzz message.', 'author': 'Kody'}
+2025-02-02 15:49:13.176 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Gardening is easier in the summertime.', 'author': 'Kody'}
+2025-02-02 15:49:14.178 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Jumping on a trampoline is good exercise.', 'author': 'Kamdyn'}
+2025-02-02 15:49:15.183 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': "I can't wait to raise pigs again.", 'author': 'Kody'}
+2025-02-02 15:49:16.186 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'My craftroom needs a makeover.', 'author': 'Valerie'}
+2025-02-02 15:49:17.187 | INFO     | __main__:generate_messages:95 - Opening data file in read mode: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:49:17.188 | INFO     | __main__:generate_messages:97 - Reading data from file: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:49:17.190 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Arts and crafts are my passion.', 'author': 'Valerie'}
+2025-02-02 15:49:18.192 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Chiropractic is my passion.', 'author': 'Kody'}
+2025-02-02 15:49:19.194 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Have a great day!', 'author': 'Valerie'}
+2025-02-02 15:49:20.197 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Minecraft and Pokemon are my passion.', 'author': 'Kamdyn'}
+2025-02-02 15:49:21.200 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Cycling is a fun activity.', 'author': 'Kody'}
+2025-02-02 15:49:22.202 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Generating buzz messages is fun when I can customize them.', 'author': 'Valerie'}
+2025-02-02 15:49:23.205 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Streaming is a lot of fun.', 'author': 'Valerie'}
+2025-02-02 15:49:24.208 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'This is a buzz message.', 'author': 'Kody'}
+2025-02-02 15:49:25.210 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Gardening is easier in the summertime.', 'author': 'Kody'}
+2025-02-02 15:49:26.213 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Jumping on a trampoline is good exercise.', 'author': 'Kamdyn'}
+2025-02-02 15:49:27.216 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': "I can't wait to raise pigs again.", 'author': 'Kody'}
+2025-02-02 15:49:28.218 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'My craftroom needs a makeover.', 'author': 'Valerie'}
+2025-02-02 15:49:29.221 | INFO     | __main__:generate_messages:95 - Opening data file in read mode: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:49:29.222 | INFO     | __main__:generate_messages:97 - Reading data from file: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:49:29.224 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Arts and crafts are my passion.', 'author': 'Valerie'}
+2025-02-02 15:49:30.226 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Chiropractic is my passion.', 'author': 'Kody'}
+2025-02-02 15:49:31.229 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Have a great day!', 'author': 'Valerie'}
+2025-02-02 15:49:32.231 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Minecraft and Pokemon are my passion.', 'author': 'Kamdyn'}
+2025-02-02 15:49:33.234 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Cycling is a fun activity.', 'author': 'Kody'}
+2025-02-02 15:49:34.236 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Generating buzz messages is fun when I can customize them.', 'author': 'Valerie'}
+2025-02-02 15:49:35.238 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Streaming is a lot of fun.', 'author': 'Valerie'}
+2025-02-02 15:49:36.240 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'This is a buzz message.', 'author': 'Kody'}
+2025-02-02 15:49:37.243 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Gardening is easier in the summertime.', 'author': 'Kody'}
+2025-02-02 15:49:38.246 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Jumping on a trampoline is good exercise.', 'author': 'Kamdyn'}
+2025-02-02 15:49:39.248 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': "I can't wait to raise pigs again.", 'author': 'Kody'}
+2025-02-02 15:49:40.251 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'My craftroom needs a makeover.', 'author': 'Valerie'}
+2025-02-02 15:49:41.253 | INFO     | __main__:generate_messages:95 - Opening data file in read mode: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:49:41.254 | INFO     | __main__:generate_messages:97 - Reading data from file: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:49:41.256 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Arts and crafts are my passion.', 'author': 'Valerie'}
+2025-02-02 15:49:42.259 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Chiropractic is my passion.', 'author': 'Kody'}
+2025-02-02 15:49:43.262 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Have a great day!', 'author': 'Valerie'}
+2025-02-02 15:49:44.264 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Minecraft and Pokemon are my passion.', 'author': 'Kamdyn'}
+2025-02-02 15:49:45.267 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Cycling is a fun activity.', 'author': 'Kody'}
+2025-02-02 15:49:46.269 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Generating buzz messages is fun when I can customize them.', 'author': 'Valerie'}
+2025-02-02 15:49:47.272 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Streaming is a lot of fun.', 'author': 'Valerie'}
+2025-02-02 15:49:48.274 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'This is a buzz message.', 'author': 'Kody'}
+2025-02-02 15:49:49.277 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Gardening is easier in the summertime.', 'author': 'Kody'}
+2025-02-02 15:49:50.279 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Jumping on a trampoline is good exercise.', 'author': 'Kamdyn'}
+2025-02-02 15:49:51.282 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': "I can't wait to raise pigs again.", 'author': 'Kody'}
+2025-02-02 15:49:52.285 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'My craftroom needs a makeover.', 'author': 'Valerie'}
+2025-02-02 15:49:53.287 | INFO     | __main__:generate_messages:95 - Opening data file in read mode: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:49:53.288 | INFO     | __main__:generate_messages:97 - Reading data from file: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:49:53.290 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Arts and crafts are my passion.', 'author': 'Valerie'}
+2025-02-02 15:49:54.292 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Chiropractic is my passion.', 'author': 'Kody'}
+2025-02-02 15:49:55.296 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Have a great day!', 'author': 'Valerie'}
+2025-02-02 15:49:56.299 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Minecraft and Pokemon are my passion.', 'author': 'Kamdyn'}
+2025-02-02 15:49:57.302 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Cycling is a fun activity.', 'author': 'Kody'}
+2025-02-02 15:49:58.305 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Generating buzz messages is fun when I can customize them.', 'author': 'Valerie'}
+2025-02-02 15:49:59.308 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Streaming is a lot of fun.', 'author': 'Valerie'}
+2025-02-02 15:50:00.311 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'This is a buzz message.', 'author': 'Kody'}
+2025-02-02 15:50:01.314 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Gardening is easier in the summertime.', 'author': 'Kody'}
+2025-02-02 15:50:02.317 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Jumping on a trampoline is good exercise.', 'author': 'Kamdyn'}
+2025-02-02 15:50:03.320 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': "I can't wait to raise pigs again.", 'author': 'Kody'}
+2025-02-02 15:50:04.322 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'My craftroom needs a makeover.', 'author': 'Valerie'}
+2025-02-02 15:50:05.324 | INFO     | __main__:generate_messages:95 - Opening data file in read mode: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:50:05.325 | INFO     | __main__:generate_messages:97 - Reading data from file: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:50:05.327 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Arts and crafts are my passion.', 'author': 'Valerie'}
+2025-02-02 15:50:06.329 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Chiropractic is my passion.', 'author': 'Kody'}
+2025-02-02 15:50:07.332 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Have a great day!', 'author': 'Valerie'}
+2025-02-02 15:50:08.341 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Minecraft and Pokemon are my passion.', 'author': 'Kamdyn'}
+2025-02-02 15:50:09.348 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Cycling is a fun activity.', 'author': 'Kody'}
+2025-02-02 15:50:10.351 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Generating buzz messages is fun when I can customize them.', 'author': 'Valerie'}
+2025-02-02 15:50:11.354 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Streaming is a lot of fun.', 'author': 'Valerie'}
+2025-02-02 15:50:12.358 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'This is a buzz message.', 'author': 'Kody'}
+2025-02-02 15:50:13.361 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Gardening is easier in the summertime.', 'author': 'Kody'}
+2025-02-02 15:50:14.363 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Jumping on a trampoline is good exercise.', 'author': 'Kamdyn'}
+2025-02-02 15:50:15.366 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': "I can't wait to raise pigs again.", 'author': 'Kody'}
+2025-02-02 15:50:16.369 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'My craftroom needs a makeover.', 'author': 'Valerie'}
+2025-02-02 15:50:17.371 | INFO     | __main__:generate_messages:95 - Opening data file in read mode: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:50:17.372 | INFO     | __main__:generate_messages:97 - Reading data from file: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:50:17.374 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Arts and crafts are my passion.', 'author': 'Valerie'}
+2025-02-02 15:50:18.377 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Chiropractic is my passion.', 'author': 'Kody'}
+2025-02-02 15:50:19.380 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Have a great day!', 'author': 'Valerie'}
+2025-02-02 15:50:20.383 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Minecraft and Pokemon are my passion.', 'author': 'Kamdyn'}
+2025-02-02 15:50:21.386 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Cycling is a fun activity.', 'author': 'Kody'}
+2025-02-02 15:50:22.389 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Generating buzz messages is fun when I can customize them.', 'author': 'Valerie'}
+2025-02-02 15:50:23.392 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Streaming is a lot of fun.', 'author': 'Valerie'}
+2025-02-02 15:50:24.395 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'This is a buzz message.', 'author': 'Kody'}
+2025-02-02 15:50:25.398 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Gardening is easier in the summertime.', 'author': 'Kody'}
+2025-02-02 15:50:26.401 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Jumping on a trampoline is good exercise.', 'author': 'Kamdyn'}
+2025-02-02 15:50:27.404 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': "I can't wait to raise pigs again.", 'author': 'Kody'}
+2025-02-02 15:50:28.406 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'My craftroom needs a makeover.', 'author': 'Valerie'}
+2025-02-02 15:50:29.408 | INFO     | __main__:generate_messages:95 - Opening data file in read mode: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:50:29.409 | INFO     | __main__:generate_messages:97 - Reading data from file: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:50:29.411 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Arts and crafts are my passion.', 'author': 'Valerie'}
+2025-02-02 15:50:30.413 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Chiropractic is my passion.', 'author': 'Kody'}
+2025-02-02 15:50:31.416 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Have a great day!', 'author': 'Valerie'}
+2025-02-02 15:50:32.418 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Minecraft and Pokemon are my passion.', 'author': 'Kamdyn'}
+2025-02-02 15:50:33.421 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Cycling is a fun activity.', 'author': 'Kody'}
+2025-02-02 15:50:34.424 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Generating buzz messages is fun when I can customize them.', 'author': 'Valerie'}
+2025-02-02 15:50:35.427 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Streaming is a lot of fun.', 'author': 'Valerie'}
+2025-02-02 15:50:36.429 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'This is a buzz message.', 'author': 'Kody'}
+2025-02-02 15:50:37.431 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Gardening is easier in the summertime.', 'author': 'Kody'}
+2025-02-02 15:50:38.434 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Jumping on a trampoline is good exercise.', 'author': 'Kamdyn'}
+2025-02-02 15:50:39.436 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': "I can't wait to raise pigs again.", 'author': 'Kody'}
+2025-02-02 15:50:40.439 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'My craftroom needs a makeover.', 'author': 'Valerie'}
+2025-02-02 15:50:41.441 | INFO     | __main__:generate_messages:95 - Opening data file in read mode: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:50:41.442 | INFO     | __main__:generate_messages:97 - Reading data from file: C:\Projects\buzzline-03-valjohnson\data\buzz.json
+2025-02-02 15:50:41.444 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Arts and crafts are my passion.', 'author': 'Valerie'}
+2025-02-02 15:50:42.446 | INFO     | __main__:main:170 - Sent message to topic 'buzzline_json': {'message': 'Chiropractic is my passion.', 'author': 'Kody'}
+2025-02-02 15:50:43.270 | WARNING  | __main__:main:173 - User ceased producer function.
+2025-02-02 15:50:43.272 | INFO     | __main__:main:178 - Kafka producer closed.
+2025-02-02 15:50:43.273 | INFO     | __main__:main:180 - END producer.
