@@ -1,10 +1,11 @@
 """
-csv_producer_valjohnson.py
+csv_consumer_case.py
 
-Stream numeric data to a Kafka topic.
+Consume json messages from a Kafka topic and process them.
 
-It is common to transfer csv data as JSON so 
-each field is clearly labeled. 
+Example Kafka message format:
+{"timestamp": "2025-01-11T18:15:00Z", "temperature": 225.0}
+
 """
 
 #####################################
@@ -13,28 +14,25 @@ each field is clearly labeled.
 
 # Import packages from Python Standard Library
 import os
-import sys
-import time  # control message intervals
-import pathlib  # work with file paths
-import csv  # handle CSV data
-import json  # work with JSON data
-from datetime import datetime  # work with timestamps
+import json
+
+# Use a deque ("deck") - a double-ended queue data structure
+# A deque is a good way to monitor a certain number of "most recent" messages
+# A deque is a great data structure for time windows (e.g. the last 5 messages)
+from collections import deque
 
 # Import external packages
 from dotenv import load_dotenv
 
 # Import functions from local modules
-from utils.utils_producer import (
-    verify_services,
-    create_kafka_producer,
-    create_kafka_topic,
-)
+from utils.utils_consumer import create_kafka_consumer
 from utils.utils_logger import logger
 
 #####################################
 # Load Environment Variables
 #####################################
 
+# Load environment variables from .env
 load_dotenv()
 
 #####################################
@@ -44,142 +42,157 @@ load_dotenv()
 
 def get_kafka_topic() -> str:
     """Fetch Kafka topic from environment or use default."""
-    topic = os.getenv("CRAFT_TOPIC", "unknown_topic")
+    topic = os.getenv("SMOKER_TOPIC", "unknown_topic")
     logger.info(f"Kafka topic: {topic}")
     return topic
 
 
-def get_message_interval() -> int:
+def get_kafka_consumer_group_id() -> str:
+    """Fetch Kafka consumer group id from environment or use default."""
+    group_id: str = os.getenv("SMOKER_CONSUMER_GROUP_ID", "default_group")
+    logger.info(f"Kafka consumer group id: {group_id}")
+    return group_id
+
+
+def get_stall_threshold() -> float:
     """Fetch message interval from environment or use default."""
-    interval = int(os.getenv("CRAFT_INTERVAL_SECONDS", 1))
-    logger.info(f"Message interval: {interval} seconds")
-    return interval
+    temp_variation = float(os.getenv("SMOKER_STALL_THRESHOLD_F", 0.2))
+    logger.info(f"Max stall temperature range: {temp_variation} F")
+    return temp_variation
+
+
+def get_rolling_window_size() -> int:
+    """Fetch rolling window size from environment or use default."""
+    window_size = int(os.getenv("SMOKER_ROLLING_WINDOW_SIZE", 5))
+    logger.info(f"Rolling window size: {window_size}")
+    return window_size
 
 
 #####################################
-# Set up Paths
-#####################################
-
-# The parent directory of this file is its folder.
-# Go up one more parent level to get the project root.
-PROJECT_ROOT = pathlib.Path(__file__).parent.parent
-logger.info(f"Project root: {PROJECT_ROOT}")
-
-# Set directory where data is stored
-DATA_FOLDER = PROJECT_ROOT.joinpath("data")
-logger.info(f"Data folder: {DATA_FOLDER}")
-
-# Set the name of the data file
-DATA_FILE = DATA_FOLDER.joinpath("smoker_temps.csv")
-logger.info(f"Data file: {DATA_FILE}")
-
-#####################################
-# Message Generator
+# Define a function to detect a stall
 #####################################
 
 
-def generate_messages(file_path: pathlib.Path):
+def detect_stall(rolling_window_deque: deque) -> bool:
     """
-    Read from a csv file and yield records one by one, continuously.
+    Detect a temperature stall based on the rolling window.
 
     Args:
-        file_path (pathlib.Path): Path to the CSV file.
+        rolling_window_deque (deque): Rolling window of temperature readings.
 
-    Yields:
-        str: CSV row formatted as a string.
+    Returns:
+        bool: True if a stall is detected, False otherwise.
     """
-    while True:
-        try:
-            logger.info(f"Opening data file in read mode: {DATA_FILE}")
-            with open(DATA_FILE, "r") as csv_file:
-                logger.info(f"Reading data from file: {DATA_FILE}")
+    WINDOW_SIZE: int = get_rolling_window_size()
+    if len(rolling_window_deque) < WINDOW_SIZE:
+        # We don't have a full deque yet
+        # Keep reading until the deque is full
+        logger.debug(
+            f"Rolling window size: {len(rolling_window_deque)}. Waiting for {WINDOW_SIZE}."
+        )
+        return False
 
-                csv_reader = csv.DictReader(csv_file)
-                for row in csv_reader:
-                    # Ensure required fields are present
-                    if "count" not in row:
-                        logger.error(f"Missing 'count' column in row: {row}")
-                        continue
-
-                    # Generate a timestamp and prepare the message
-                    current_timestamp = datetime.utcnow().isoformat()
-                    message = {
-                        "timestamp": current_timestamp,
-                        "count": float(row["count"]),
-                    }
-                    logger.debug(f"Generated message: {message}")
-                    yield message
-        except FileNotFoundError:
-            logger.error(f"File not found: {file_path}. Exiting.")
-            sys.exit(1)
-        except Exception as e:
-            logger.error(f"Unexpected error in message generation: {e}")
-            sys.exit(3)
+    # Once the deque is full we can calculate the temperature range
+    # Use Python's built-in min() and max() functions
+    # If the range is less than or equal to the threshold, we have a stall
+    # And our food is ready :)
+    temp_range = max(rolling_window_deque) - min(rolling_window_deque)
+    is_stalled: bool = temp_range <= get_stall_threshold()
+    logger.debug(f"Temperature range: {temp_range}°F. Stalled: {is_stalled}")
+    return is_stalled
 
 
 #####################################
-# Define main function for this module.
+# Function to process a single message
+# #####################################
+
+
+def process_message(message: str, rolling_window: deque, window_size: int) -> None:
+    """
+    Process a JSON-transferred CSV message and check for stalls.
+
+    Args:
+        message (str): JSON message received from Kafka.
+        rolling_window (deque): Rolling window of temperature readings.
+        window_size (int): Size of the rolling window.
+    """
+    try:
+        # Log the raw message for debugging
+        logger.debug(f"Raw message: {message}")
+
+        # Parse the JSON string into a Python dictionary
+        data: dict = json.loads(message)
+        temperature = data.get("temperature")
+        timestamp = data.get("timestamp")
+        logger.info(f"Processed JSON message: {data}")
+
+        # Ensure the required fields are present
+        if temperature is None or timestamp is None:
+            logger.error(f"Invalid message format: {message}")
+            return
+
+        # Append the temperature reading to the rolling window
+        rolling_window.append(temperature)
+
+        # Check for a stall
+        if detect_stall(rolling_window):
+            logger.info(
+                f"STALL DETECTED at {timestamp}: Temp stable at {temperature}°F over last {window_size} readings."
+            )
+
+    except json.JSONDecodeError as e:
+        logger.error(f"JSON decoding error for message '{message}': {e}")
+    except Exception as e:
+        logger.error(f"Error processing message '{message}': {e}")
+
+
+#####################################
+# Define main function for this module
 #####################################
 
 
-def main():
+def main() -> None:
     """
-    Main entry point for the producer.
+    Main entry point for the consumer.
 
-    - Reads the Kafka topic name from an environment variable.
-    - Creates a Kafka producer using the `create_kafka_producer` utility.
-    - Streams messages to the Kafka topic.
+    - Reads the Kafka topic name and consumer group ID from environment variables.
+    - Creates a Kafka consumer using the `create_kafka_consumer` utility.
+    - Polls and processes messages from the Kafka topic.
     """
-
-    logger.info("START producer.")
-    verify_services()
+    logger.info("START consumer.")
 
     # fetch .env content
     topic = get_kafka_topic()
-    interval_secs = get_message_interval()
+    group_id = get_kafka_consumer_group_id()
+    window_size = get_rolling_window_size()
+    logger.info(f"Consumer: Topic '{topic}' and group '{group_id}'...")
+    logger.info(f"Rolling window size: {window_size}")
 
-    # Verify the data file exists
-    if not DATA_FILE.exists():
-        logger.error(f"Data file not found: {DATA_FILE}. Exiting.")
-        sys.exit(1)
+    rolling_window = deque(maxlen=window_size)
 
-    # Create the Kafka producer
-    producer = create_kafka_producer(
-        value_serializer=lambda x: json.dumps(x).encode("utf-8")
-    )
-    if not producer:
-        logger.error("Failed to create Kafka producer. Exiting...")
-        sys.exit(3)
+    # Create the Kafka consumer using the helpful utility function.
+    consumer = create_kafka_consumer(topic, group_id)
 
-    # Create topic if it doesn't exist
+    # Poll and process messages
+    logger.info(f"Polling messages from topic '{topic}'...")
     try:
-        create_kafka_topic(topic)
-        logger.info(f"Kafka topic '{topic}' is ready.")
-    except Exception as e:
-        logger.error(f"Failed to create or verify topic '{topic}': {e}")
-        sys.exit(1)
-
-    # Generate and send messages
-    logger.info(f"Starting message production to topic '{topic}'...")
-    try:
-        for csv_message in generate_messages(DATA_FILE):
-            producer.send(topic, value=csv_message)
-            logger.info(f"Sent message to topic '{topic}': {csv_message}")
-            time.sleep(interval_secs)
+        for message in consumer:
+            message_str = message.value
+            logger.debug(f"Received message at offset {message.offset}: {message_str}")
+            process_message(message_str, rolling_window, window_size)
     except KeyboardInterrupt:
-        logger.warning("User ceased producer function.")
+        logger.warning("Consumer interrupted by user.")
     except Exception as e:
-        logger.error(f"Error during message production: {e}")
+        logger.error(f"Error while consuming messages: {e}")
     finally:
-        producer.close()
-        logger.info("Kafka producer closed.")
-
-    logger.info("END producer.")
+        consumer.close()
+        logger.info(f"Kafka consumer for topic '{topic}' closed.")
 
 
 #####################################
 # Conditional Execution
 #####################################
 
+# Ensures this script runs only when executed directly (not when imported as a module).
 if __name__ == "__main__":
     main()
