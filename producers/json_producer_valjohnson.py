@@ -1,13 +1,13 @@
 """
-json_producer_case.py
+json_producer_valjohnson.py
 
 Stream JSON data to a Kafka topic.
 
 Example JSON message
-{"message": "I love Python!", "author": "Eve"}
+{"message": "Arts and crafts are my passion.", "author": "Valerie"}
 
 Example serialized to Kafka message
-"{\"message\": \"I love Python!\", \"author\": \"Eve\"}"
+"{\"message\": \"Arts and crafts are my passion.\", \"author\": \"Valerie\"}"
 
 """
 
@@ -170,7 +170,7 @@ def main():
             logger.info(f"Sent message to topic '{topic}': {message_dict}")
             time.sleep(interval_secs)
     except KeyboardInterrupt:
-        logger.warning("Producer interrupted by user.")
+        logger.warning("User ceased producer function.")
     except Exception as e:
         logger.error(f"Error during message production: {e}")
     finally:
