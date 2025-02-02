@@ -4,7 +4,7 @@ csv_consumer_valjohnson.py
 Consume json messages from a Kafka topic and process them.
 
 Example Kafka message format:
-{"name": "Markers", "count": 246}
+{"craft_supply": "Markers", "count": 246}
 
 """
 
@@ -56,8 +56,8 @@ def get_kafka_consumer_group_id() -> str:
 
 def get_stall_threshold() -> float:
     """Fetch message interval from environment or use default."""
-    count_variation = float(os.getenv("CRAFT_STALL_THRESHOLD_F", 0.2))
-    logger.info(f"Max craft count range: {count_variation}")
+    count_variation = float(os.getenv("CRAFT_STALL_THRESHOLD_", 2))
+    logger.info(f"Max count variation before stall: {count_variation}")
     return count_variation
 
 
@@ -78,7 +78,7 @@ def detect_stall(rolling_window_deque: deque) -> bool:
     Detect a count stall based on the rolling window.
 
     Args:
-        rolling_window_deque (deque): Rolling window of count readings.
+        rolling_window_deque (deque): Rolling window of craft supply counts.
 
     Returns:
         bool: True if a stall is detected, False otherwise.
@@ -123,21 +123,21 @@ def process_message(message: str, rolling_window: deque, window_size: int) -> No
         # Parse the JSON string into a Python dictionary
         data: dict = json.loads(message)
         count = data.get("count")
-        name = data.get("name")
+        craft_supply = data.get("craft_supply")
         logger.info(f"Processed JSON message: {data}")
 
         # Ensure the required fields are present
-        if count is None or name is None:
+        if count is None or craft_supply is None:
             logger.error(f"Invalid message format: {message}")
             return
 
-        # Append the temperature reading to the rolling window
+        # Append the count reading to the rolling window
         rolling_window.append(count)
 
         # Check for a stall
         if detect_stall(rolling_window):
             logger.info(
-                f"STALL DETECTED at {name}: Number stable at {count} over last {window_size} readings."
+                f"STALL DETECTED at {craft_supply}: count stable at {count} over last {window_size} readings."
             )
 
     except json.JSONDecodeError as e:
