@@ -1,7 +1,7 @@
 """
 csv_producer_valjohnson.py
 
-Stream numeric data to a Kafka topic.
+Stream craft supply data to a Kafka topic.
 
 It is common to transfer csv data as JSON so 
 each field is clearly labeled. 
@@ -44,7 +44,7 @@ load_dotenv()
 
 def get_kafka_topic() -> str:
     """Fetch Kafka topic from environment or use default."""
-    topic = os.getenv("CRAFT_TOPIC", "unknown_topic")
+    topic = os.getenv("CRAFT_TOPIC", "craft_inventory_topic")
     logger.info(f"Kafka topic: {topic}")
     return topic
 
@@ -97,18 +97,18 @@ def generate_messages(file_path: pathlib.Path):
                 csv_reader = csv.DictReader(csv_file)
                 for row in csv_reader:
                     # Ensure required fields are present
-                    if "count" not in row:
-                        logger.error(f"Missing 'count' column in row: {row}")
+                    if "craft_supply" not in row or "count" not in row:
+                        logger.error(f"Missing required column in row: {row}")
                         continue
 
-                    # Generate a timestamp and prepare the message
-                    current_timestamp = datetime.utcnow().isoformat()
                     message = {
-                        "timestamp": current_timestamp,
-                        "count": float(row["count"]),
+                        "craft_supply": row["craft_supply"],
+                        "count": int(row["count"]),
                     }
+                    
                     logger.debug(f"Generated message: {message}")
                     yield message
+
         except FileNotFoundError:
             logger.error(f"File not found: {file_path}. Exiting.")
             sys.exit(1)
