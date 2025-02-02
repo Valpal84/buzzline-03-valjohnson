@@ -26407,3 +26407,29 @@
 2025-02-02 17:33:56.923 | WARNING  | __main__:main:170 - User ceased producer function.
 2025-02-02 17:33:56.924 | INFO     | __main__:main:175 - Kafka producer closed.
 2025-02-02 17:33:56.925 | INFO     | __main__:main:177 - END producer.
+2025-02-02 17:41:14.000 | INFO     | utils.utils_logger:<module>:38 - Logging to file: logs\project_log.log
+2025-02-02 17:41:14.006 | INFO     | __main__:<module>:66 - Project root: C:\Projects\buzzline-03-valjohnson
+2025-02-02 17:41:14.006 | INFO     | __main__:<module>:70 - Data folder: C:\Projects\buzzline-03-valjohnson\data
+2025-02-02 17:41:14.007 | INFO     | __main__:<module>:74 - Data file: C:\Projects\buzzline-03-valjohnson\data\craft_inventory.csv
+2025-02-02 17:41:14.007 | INFO     | __main__:main:134 - START producer.
+2025-02-02 17:41:14.007 | INFO     | utils.utils_producer:get_zookeeper_address:57 - Zookeeper address: localhost:2181
+2025-02-02 17:41:14.018 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:79 - Zookeeper is ready at localhost:2181.
+2025-02-02 17:41:14.018 | INFO     | utils.utils_producer:get_kafka_broker_address:50 - Kafka broker address: localhost:9092
+2025-02-02 17:41:14.342 | INFO     | utils.utils_producer:check_kafka_service_is_ready:98 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': 'dqsRHs54RlOZ2u6c_54o9w', 'controller_id': 1001}
+2025-02-02 17:41:14.343 | INFO     | __main__:get_kafka_topic:48 - Kafka topic: craft_csv
+2025-02-02 17:41:14.344 | INFO     | __main__:get_message_interval:55 - Message interval: 8 seconds
+2025-02-02 17:41:14.345 | INFO     | utils.utils_producer:get_kafka_broker_address:50 - Kafka broker address: localhost:9092
+2025-02-02 17:41:14.345 | INFO     | utils.utils_producer:create_kafka_producer:146 - Connecting to Kafka broker at localhost:9092...
+2025-02-02 17:41:14.456 | INFO     | utils.utils_producer:create_kafka_producer:151 - Kafka producer successfully created.
+2025-02-02 17:41:14.457 | INFO     | utils.utils_producer:get_kafka_broker_address:50 - Kafka broker address: localhost:9092
+2025-02-02 17:41:14.782 | INFO     | utils.utils_producer:create_kafka_topic:172 - Topic 'craft_csv' already exists. Clearing it out...
+2025-02-02 17:41:14.783 | INFO     | utils.utils_producer:get_kafka_broker_address:50 - Kafka broker address: localhost:9092
+2025-02-02 17:41:15.119 | ERROR    | utils.utils_producer:clear_kafka_topic:235 - Error managing retention for topic 'craft_csv': 'list' object has no attribute 'result'
+2025-02-02 17:41:15.121 | INFO     | __main__:main:157 - Kafka topic 'craft_csv' is ready.
+2025-02-02 17:41:15.122 | INFO     | __main__:main:163 - Starting message production to topic 'craft_csv'...
+2025-02-02 17:41:15.122 | INFO     | __main__:generate_messages:93 - Opening data file in read mode: C:\Projects\buzzline-03-valjohnson\data\craft_inventory.csv
+2025-02-02 17:41:15.123 | INFO     | __main__:generate_messages:95 - Reading data from file: C:\Projects\buzzline-03-valjohnson\data\craft_inventory.csv
+2025-02-02 17:41:15.127 | INFO     | __main__:main:167 - Sent message to topic 'craft_csv': {'craft_supply': 'Markers', 'count': 246}
+2025-02-02 17:41:22.241 | WARNING  | __main__:main:170 - User ceased producer function.
+2025-02-02 17:41:22.242 | INFO     | __main__:main:175 - Kafka producer closed.
+2025-02-02 17:41:22.243 | INFO     | __main__:main:177 - END producer.

@@ -202,7 +202,7 @@ def clear_kafka_topic(topic_name, group_id):
     try:
         # Fetch the current retention period
         config_resource = ConfigResource(ConfigResourceType.TOPIC, topic_name)
-        configs = admin_client.describe_configs([config_resource]).result()
+        configs = admin_client.describe_configs([config_resource])
         original_retention = configs[config_resource].get("retention.ms", "604800000")  # Default to 7 days
         logger.info(f"Original retention.ms for topic '{topic_name}': {original_retention}")
 
