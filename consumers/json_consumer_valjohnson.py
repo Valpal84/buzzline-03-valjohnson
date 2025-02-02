@@ -1,15 +1,15 @@
 """
-json_consumer_case.py
+json_consumer_valjohnson.py
 
 Consume json messages from a Kafka topic and process them.
 
 JSON is a set of key:value pairs. 
 
 Example serialized Kafka message
-"{\"message\": \"I love Python!\", \"author\": \"Eve\"}"
+"{\"message\": \"Arts and crafts are my passion.\", \"author\": \"Valerie\"}"
 
 Example JSON message (after deserialization) to be analyzed
-{"message": "I love Python!", "author": "Eve"}
+{"message": "Arts and crafts are my passion.", "author": "Valerie"}
 
 """
 
@@ -99,6 +99,12 @@ def process_message(message: str) -> None:
 
             # Log the updated counts
             logger.info(f"Updated author counts: {dict(author_counts)}")
+            
+            # Check if the author is 'Kamdyn' and alert.
+            if author.lower() == "Kamdyn":
+                logger.warning("ALERT: Message from Kamdyn received!")
+                print("ALERT: Message from Kamdyn received!")
+
         else:
             logger.error(f"Expected a dictionary but got: {type(message_dict)}")
 
@@ -139,7 +145,7 @@ def main() -> None:
             logger.debug(f"Received message at offset {message.offset}: {message_str}")
             process_message(message_str)
     except KeyboardInterrupt:
-        logger.warning("Consumer interrupted by user.")
+        logger.warning("User ceased consumer function.")
     except Exception as e:
         logger.error(f"Error while consuming messages: {e}")
     finally:
