@@ -19,6 +19,7 @@ Example JSON message (after deserialization) to be analyzed
 
 # Import packages from Python Standard Library
 import os
+import sys
 import json  # handle JSON parsing
 from collections import defaultdict  # data structure for counting author occurrences
 
@@ -103,7 +104,8 @@ def process_message(message: str) -> None:
             # Check if the author is 'Kamdyn' and alert.
             if author.lower() == "kamdyn":
                 logger.warning("ALERT: Message from Kamdyn received!")
-                print("ALERT: Message from Kamdyn received!")
+                print("ALERT: Message from Kamdyn received!", flush=True)
+                sys.stdout.flush
 
         else:
             logger.error(f"Expected a dictionary but got: {type(message_dict)}")
