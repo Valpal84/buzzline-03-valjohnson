@@ -1,10 +1,10 @@
 """
-csv_consumer_case.py
+csv_consumer_valjohnson.py
 
 Consume json messages from a Kafka topic and process them.
 
 Example Kafka message format:
-{"timestamp": "2025-01-11T18:15:00Z", "temperature": 225.0}
+{"name": "Markers", "count": 246}
 
 """
 
@@ -42,28 +42,28 @@ load_dotenv()
 
 def get_kafka_topic() -> str:
     """Fetch Kafka topic from environment or use default."""
-    topic = os.getenv("SMOKER_TOPIC", "unknown_topic")
+    topic = os.getenv("CRAFT_TOPIC", "unknown_topic")
     logger.info(f"Kafka topic: {topic}")
     return topic
 
 
 def get_kafka_consumer_group_id() -> str:
     """Fetch Kafka consumer group id from environment or use default."""
-    group_id: str = os.getenv("SMOKER_CONSUMER_GROUP_ID", "default_group")
+    group_id: str = os.getenv("CRAFT_CONSUMER_GROUP_ID", "default_group")
     logger.info(f"Kafka consumer group id: {group_id}")
     return group_id
 
 
 def get_stall_threshold() -> float:
     """Fetch message interval from environment or use default."""
-    temp_variation = float(os.getenv("SMOKER_STALL_THRESHOLD_F", 0.2))
-    logger.info(f"Max stall temperature range: {temp_variation} F")
-    return temp_variation
+    count_variation = float(os.getenv("CRAFT_STALL_THRESHOLD_F", 0.2))
+    logger.info(f"Max craft count range: {count_variation}")
+    return count_variation
 
 
 def get_rolling_window_size() -> int:
     """Fetch rolling window size from environment or use default."""
-    window_size = int(os.getenv("SMOKER_ROLLING_WINDOW_SIZE", 5))
+    window_size = int(os.getenv("CRAFT_ROLLING_WINDOW_SIZE", 8))
     logger.info(f"Rolling window size: {window_size}")
     return window_size
 
@@ -75,10 +75,10 @@ def get_rolling_window_size() -> int:
 
 def detect_stall(rolling_window_deque: deque) -> bool:
     """
-    Detect a temperature stall based on the rolling window.
+    Detect a count stall based on the rolling window.
 
     Args:
-        rolling_window_deque (deque): Rolling window of temperature readings.
+        rolling_window_deque (deque): Rolling window of count readings.
 
     Returns:
         bool: True if a stall is detected, False otherwise.
@@ -92,13 +92,13 @@ def detect_stall(rolling_window_deque: deque) -> bool:
         )
         return False
 
-    # Once the deque is full we can calculate the temperature range
+    # Once the deque is full we can calculate the count range
     # Use Python's built-in min() and max() functions
     # If the range is less than or equal to the threshold, we have a stall
-    # And our food is ready :)
-    temp_range = max(rolling_window_deque) - min(rolling_window_deque)
-    is_stalled: bool = temp_range <= get_stall_threshold()
-    logger.debug(f"Temperature range: {temp_range}°F. Stalled: {is_stalled}")
+    # And our counts are finalized :)
+    count_range = max(rolling_window_deque) - min(rolling_window_deque)
+    is_stalled: bool = count_range <= get_stall_threshold()
+    logger.debug(f"Count range: {count_range}. Stalled: {is_stalled}")
     return is_stalled
 
 
@@ -122,22 +122,22 @@ def process_message(message: str, rolling_window: deque, window_size: int) -> No
 
         # Parse the JSON string into a Python dictionary
         data: dict = json.loads(message)
-        temperature = data.get("temperature")
-        timestamp = data.get("timestamp")
+        count = data.get("count")
+        name = data.get("name")
         logger.info(f"Processed JSON message: {data}")
 
         # Ensure the required fields are present
-        if temperature is None or timestamp is None:
+        if count is None or name is None:
             logger.error(f"Invalid message format: {message}")
             return
 
         # Append the temperature reading to the rolling window
-        rolling_window.append(temperature)
+        rolling_window.append(count)
 
         # Check for a stall
         if detect_stall(rolling_window):
             logger.info(
-                f"STALL DETECTED at {timestamp}: Temp stable at {temperature}°F over last {window_size} readings."
+                f"STALL DETECTED at {name}: Number stable at {count} over last {window_size} readings."
             )
 
     except json.JSONDecodeError as e:
@@ -181,7 +181,7 @@ def main() -> None:
             logger.debug(f"Received message at offset {message.offset}: {message_str}")
             process_message(message_str, rolling_window, window_size)
     except KeyboardInterrupt:
-        logger.warning("Consumer interrupted by user.")
+        logger.warning("User ceased consumer function.")
     except Exception as e:
         logger.error(f"Error while consuming messages: {e}")
     finally:
