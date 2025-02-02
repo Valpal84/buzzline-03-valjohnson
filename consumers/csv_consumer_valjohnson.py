@@ -44,14 +44,14 @@ load_dotenv()
 
 def get_kafka_topic() -> str:
     """Fetch Kafka topic from environment or use default."""
-    topic = os.getenv("SMOKER_TOPIC", "unknown_topic")
+    topic = os.getenv("CRAFT_TOPIC", "unknown_topic")
     logger.info(f"Kafka topic: {topic}")
     return topic
 
 
 def get_message_interval() -> int:
     """Fetch message interval from environment or use default."""
-    interval = int(os.getenv("SMOKER_INTERVAL_SECONDS", 1))
+    interval = int(os.getenv("CRAFT_INTERVAL_SECONDS", 1))
     logger.info(f"Message interval: {interval} seconds")
     return interval
 
@@ -97,15 +97,15 @@ def generate_messages(file_path: pathlib.Path):
                 csv_reader = csv.DictReader(csv_file)
                 for row in csv_reader:
                     # Ensure required fields are present
-                    if "temperature" not in row:
-                        logger.error(f"Missing 'temperature' column in row: {row}")
+                    if "count" not in row:
+                        logger.error(f"Missing 'count' column in row: {row}")
                         continue
 
                     # Generate a timestamp and prepare the message
                     current_timestamp = datetime.utcnow().isoformat()
                     message = {
                         "timestamp": current_timestamp,
-                        "temperature": float(row["temperature"]),
+                        "count": float(row["count"]),
                     }
                     logger.debug(f"Generated message: {message}")
                     yield message
@@ -167,7 +167,7 @@ def main():
             logger.info(f"Sent message to topic '{topic}': {csv_message}")
             time.sleep(interval_secs)
     except KeyboardInterrupt:
-        logger.warning("Producer interrupted by user.")
+        logger.warning("User ceased producer function.")
     except Exception as e:
         logger.error(f"Error during message production: {e}")
     finally:
