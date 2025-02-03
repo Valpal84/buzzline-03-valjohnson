@@ -134,6 +134,10 @@ def process_message(message: str, rolling_window: deque, window_size: int) -> No
         # Append the count reading to the rolling window
         rolling_window.append(count)
 
+        # Check for reorder alert
+        if count < 5:
+            logger.warning(f"LOW STOCK ALERT: '{craft_supply}' count is {count}. Reorder recommended!")
+
         # Check for a stall
         if detect_stall(rolling_window):
             logger.info(
