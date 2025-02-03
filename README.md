@@ -39,6 +39,7 @@ See instructions at [SETUP-KAFKA.md] to:
 2. Start Kafka ([link](https://github.com/denisecase/buzzline-02-case/blob/main/docs/SETUP-KAFKA.md#step-8-start-kafka-terminal-2))
 
 ## Task 5. Start a JSON Producer
+You're going to be looking into a json file that I created with new authors (myself, Kamdyn and Kody). I have created statements that each of us hold true, or things that we really like. You will be able to stream these statements using the JSON producer as stated below. 
 
 In VS Code, open a terminal.
 Use the commands below to activate .venv, and start the producer. 
@@ -60,6 +61,7 @@ What did we name the topic used with JSON data?
 Hint: See the producer code and [.env](.env).
 
 ## Task 6. Start a JSON Consumer
+With this consumer, you'll be able to read the statements that the producer created and see if any of the statements alert when my son Kamdyn has made them. You'll use the code below to see these. 
 
 Consumers process streaming data in real time.
 
@@ -69,13 +71,13 @@ Use the commands below to activate .venv, and start the consumer.
 Windows:
 ```shell
 .venv\Scripts\activate
-py -m consumers.json_consumer_case
+py -m consumers.json_consumer_valjohnson
 ```
 
 Mac/Linux:
 ```zsh
 source .venv/bin/activate
-python3 -m consumers.json_consumer_case
+python3 -m consumers.json_consumer_valjohnson
 ```
 
 What did we name the topic used with JSON data? 
@@ -90,9 +92,9 @@ You will need to:
 3. Know the command that works on your machine to execute python (e.g. py or python3).
 4. Know how to use the -m (module flag to run your file as a module).
 5. Know the full name of the module you want to run. Hint: Look in the producers folder.
+6. To start the csv producer you need to use the code py -m consumers.csv_consumer_valjohnson (for windows)
+7. For MAC users, follow the code above except change json to csv. 
 
-What did we name the topic used with csv data? 
-Hint: See the producer code and [.env](.env).
 
 ## Task 8. Start a CSV Consumer
 
@@ -103,9 +105,14 @@ You will need to:
 3. Know the command that works on your machine to execute python (e.g. py or python3).
 4. Know how to use the -m (module flag to run your file as a module).
 5. Know the full name of the module you want to run. Hint: Look in the consumers folder.
+6. To start the CSV consumer you need to use the code py -m consumers.csv_consumer_valjohnson (for windows).
+7. For MAC users, follow the code above, except change json to csv.
 
 What did we name the topic used with csv data? 
 Hint: See the consumer code and [.env](.env).
+
+## About the Craft Inventory (CSV File)
+I have created a CSV file of some miscellaneous craft inventory as I'm an avid crafter who also owns a craft business. Using the producer and consumers I could track my inventory and add alerts to items that are low in stock. This would alert me to the need to restock or reorder inventory for my business. 
 
 ## About the Smart Smoker (CSV Example)
 
